@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DocPredict</title>
+</head>
+<body>
+<h1>Enter your symptoms</h1>
+<form id="symptomsForm">
+    <input type="text" name=“symptoms“ placeholder="Your symptoms" required>
+    <button type="submit">Suggest specialist</button>
+</form>
+<div id="prediction"></div>
+<script>
+    const form = document.getElementById('symptomsForm');
+    const resultDiv = document.getElementById('prediction');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // prevent full page reload
+        const formData = new FormData(form);
+        const response = await fetch('/index/submit', {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+        });
+// insert HTML fragment into page
+        const html = await response.text();
+        resultDiv.innerHTML = html;
+    });
+</script>
+</body>
+</html>

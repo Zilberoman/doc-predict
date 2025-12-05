@@ -19,9 +19,10 @@ dependencies {
     implementation 'io.quarkus:quarkus-arc'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+    implementation "com.opencsv:opencsv:${csvVersion}"
 }
 
-group = 'com.zilberoman'
+group = 'com.zilberoman.doc.predict'
 version = '1.0.0-SNAPSHOT'
 
 java {

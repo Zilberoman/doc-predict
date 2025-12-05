@@ -1,11 +1,10 @@
-# doc-predict
+# doc-predict - AI Healthcare Assistant
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+DocPredict is a Quarkus application using LangChain4j 
+that predicts the appropriate specialist doctor based on described symptoms. 
+The LLM analyzes symptoms to predict a disease, then maps it to a hospital doctor from a CSV database.
 
 ## Running the application in dev mode
-
 You can run your application in dev mode that enables live coding using:
 
 ```shell script
@@ -14,6 +13,11 @@ You can run your application in dev mode that enables live coding using:
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
 
+
+## Architecture
+
+[Qute Frontend] → [REST API] → [AI Service (LangChain4j)] → [DeepSeek] → [CSV Doctors DB]
+
 ## Packaging and running the application
 
 The application can be packaged using:
@@ -21,7 +25,6 @@ The application can be packaged using:
 ```shell script
 ./gradlew build
 ```
-
 It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
 Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
 
